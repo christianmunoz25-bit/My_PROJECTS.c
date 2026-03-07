@@ -2,7 +2,7 @@
 
 int main() {
     int choice;
-    int networkChoice; // Use a separate variable for the sub-menu
+    int networkChoice;
     float amount;
     float TotalELoad = 0.0;
     float eWALLETBalance = 0.0;
