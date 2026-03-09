@@ -2,6 +2,7 @@
 
 int main() {
     int choice;
+    char simNumber [11];
     int networkChoice;
     float amount;
     float TotalELoad = 0.0;
@@ -21,12 +22,13 @@ int main() {
   
         switch(choice) {
             case 1:
+             
                 printf("\nPlease select your Network you want to load: \n");
                 printf("1. SMART\n2. TNT\n3. SUN\n4. GLOBE\n5. TM\n6. DITO\n");
                 printf("Enter your preferred Network: ");
                 scanf("%d", &networkChoice);
 
-                // Nested switch to handle specific network logic
+           
                 switch(networkChoice) {
                     case 1: printf("Selected: SMART\n"); break;
                     case 2: printf("Selected: TNT\n"); break;
@@ -37,12 +39,17 @@ int main() {
                     default: printf("Invalid Network selection!\n"); break;
                 }
                 
-                // Add loading logic here (e.g., enter amount)
+             printf("\nEnter your SIM number: ");
+            scanf("%s", &simNumber);
+            
                 if(networkChoice >= 1 && networkChoice <= 6) {
                     printf("Enter amount to load: ");
                     scanf("%f", &amount);
                     TotalELoad += amount;
-                    printf("Successfully loaded P%.2f!\n", amount);
+                  printf("\n===== LOAD SUCCESSFULLY =====\n");
+                  printf("SIM Number: %s\n", simNumber);
+                  printf("Amount Loaded: P%.2f\n", amount);
+                  printf("===========================\n");
                 }
                 break; // Exits Case 1 and prevents "falling through" to default
 
