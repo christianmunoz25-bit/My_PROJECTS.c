@@ -4,6 +4,7 @@ int main() {
     int choice;
     char simNumber [11];
     int networkChoice;
+    int promoChoice;
     float amount;
     float TotalELoad = 0.0;
     float eWALLETBalance = 0.0;
@@ -17,7 +18,7 @@ int main() {
         printf("2. E-wallet\n");
         printf("3. Bills Payment\n");
         printf("4. Exit\n");
-        printf("Your choice: ");
+        printf("Please choose your selected services: ");
         scanf("%d", &choice);
   
         switch(choice) {
@@ -30,19 +31,78 @@ int main() {
 
            
                 switch(networkChoice) {
-                    case 1: printf("Selected: SMART\n"); break;
-                    case 2: printf("Selected: TNT\n"); break;
-                    case 3: printf("Selected: SUN\n"); break;
-                    case 4: printf("Selected: GLOBE\n"); break;
-                    case 5: printf("Selected: TM\n"); break;
-                    case 6: printf("Selected: DITO\n"); break;
-                    default: printf("Invalid Network selection!\n"); break;
-                }
+                     case 1:
+                    printf("\nSelected: SMART\n");
+                    printf("Available Promos:\n");
+                    printf("1. SMART All Text 10 - Unli Text (1 day)\n");
+                    printf("2. SMART Call & Text 30 - Unli Text + Calls\n");
+                    printf("3. SMART Data 50 - 1GB Data\n");
+                    printf("4. SMART Combo 100 - 2GB Data + Unli Text\n");
+                    printf("5. Regular Load\n");
+                    break;
+
+                case 2:
+                    printf("\nSelected: TNT\n");
+                    printf("Available Promos:\n");
+                    printf("1. TNT Panalo 10 - Unli Text\n");
+                    printf("2. TNT Saya 30 - Text + Calls\n");
+                    printf("3. TNT Data 50 - 1GB Data\n");
+                    printf("4. TNT Giga 99 - 2GB Data\n");
+                    printf("5. Regular Load\n");
+                    break;
+
+                case 3:
+                    printf("\nSelected: SUN\n");
+                    printf("Available Promos:\n");
+                    printf("1. SUN Text 10 - Unli Text\n");
+                    printf("2. SUN Combo 30 - Calls + Text\n");
+                    printf("3. SUN Data 50 - 1GB Data\n");
+                    printf("4. SUN Surf 100 - 2GB Data\n");
+                    printf("5. Regular Load\n");
+                    break;
+
+                case 4:
+                    printf("\nSelected: GLOBE\n");
+                    printf("Available Promos:\n");
+                    printf("1. GoTXT 10 - Unli Text\n");
+                    printf("2. GoCALL 30 - Text + Calls\n");
+                    printf("3. GoSURF 50 - 1GB Data\n");
+                    printf("4. GoSURF 99 - 2GB Data\n");
+                    printf("5. Regular Load\n");
+                    break;
+
+                case 5:
+                    printf("\nSelected: TM\n");
+                    printf("Available Promos:\n");
+                    printf("1. TM AstigTXT 10 - Unli Text\n");
+                    printf("2. TM AstigCALL 30 - Calls + Text\n");
+                    printf("3. TM Data 50 - 1GB Data\n");
+                    printf("4. TM Combo 90 - 2GB Data\n");
+                    printf("5. Regular Load\n");
+                    break;
+
+                case 6:
+                    printf("\nSelected: DITO\n");
+                    printf("Available Promos:\n");
+                    printf("1. DITO LevelUp 10 - 500MB Data\n");
+                    printf("2. DITO LevelUp 30 - 1GB Data + Text\n");
+                    printf("3. DITO LevelUp 50 - 2GB Data\n");
+                    printf("4. DITO LevelUp 99 - 4GB Data\n");
+                    printf("5. Regular Load\n");
+                    break;
+
+                default:
+                    printf("Invalid Network selection!\n");
+                    continue;
+            }
+            
+            printf("Enter your Selected Promo: ");
+            scanf("%d", &promoChoice);
                 
              printf("\nEnter your SIM number: ");
             scanf("%s", &simNumber);
             
-                if(networkChoice >= 1 && networkChoice <= 6) {
+               /* if(networkChoice >= 1 && networkChoice <= 6) {
                     printf("Enter amount to load: ");
                     scanf("%f", &amount);
                     TotalELoad += amount;
@@ -51,24 +111,45 @@ int main() {
                   printf("Amount Loaded: P%.2f\n", amount);
                   printf("===========================\n");
                 }
-                break; // Exits Case 1 and prevents "falling through" to default
+                */
+                 if(promoChoice == 1) amount = 10;
+            else if(promoChoice == 2) amount = 30;
+            else if(promoChoice == 3) amount = 50;
+            else if(promoChoice == 4) amount = 100;
+            else if(promoChoice == 5) {
+                printf("Enter Regular Load Amount: ");
+                scanf("%f", &amount);
+            }
+            else {
+                printf("Invalid Promo!\n");
 
-            case 2:
-                printf("E-Wallet Feature - Balance: P%.2f\n", eWALLETBalance);
                 break;
+            }  
+            
+                  TotalELoad += amount;
 
-            case 3:
-                printf("Bills Payment Feature - Total Paid: P%.2f\n", totalBills);
-                break;
+            printf("\n===== LOAD SUCCESSFULLY =====\n");
+            printf("SIM Number: %s\n", simNumber);
+            printf("Amount Loaded: P%.2f\n", amount);
+            printf("=============================\n");
+                 break;
 
-            case 4:
-                printf("Exiting... Thank you for using 7/11!\n");
-                return 0; // Terminates the program
-           
-            default:
-                printf("Invalid! The choice is not on the list! Please try again.\n");
-                break;
+          case 2:
+            printf("E-Wallet Feature - Balance: P%.2f\n", eWALLETBalance);
+            break;
+
+        case 3:
+            printf("Bills Payment Feature - Total Paid: P%.2f\n", totalBills);
+            break;
+
+        case 4:
+            printf("THANK YOU! PLEASE COME AGAIN!\n");
+            return 0;
+
+        default:
+            printf("Invalid! The choice is not on the list! Please try again.\n");
         }
     }
+
     return 0;
 }
